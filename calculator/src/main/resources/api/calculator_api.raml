@@ -1,0 +1,61 @@
+#%RAML 1.0
+title: Calculator_Api
+#%RAML 1.0
+
+version: v1
+
+types:
+  Result:
+    type: object
+    properties:
+      result: number
+
+/calculator:
+  /add:
+    get:
+      description: Add two numbers
+      queryParameters:
+        num1:
+          type: number
+          required: true
+        num2:
+          type: number
+          required: true
+      responses:
+        200:
+          description: Successful addition
+          body:
+            application/json:
+              type: Result
+  /subtract:
+    get:
+      description: Subtract one number from another
+      queryParameters:
+        num1:
+          type: number
+          required: true
+        num2:
+          type: number
+          required: true
+      responses:
+        200:
+          description: Successful subtraction
+          body:
+            application/json:
+              type: Result
+  /divide:
+    get:
+      description: Divide one number by another
+      queryParameters:
+        dividend:
+          type: number
+          required: true
+        divisor:
+          type: number
+          required: true
+      responses:
+        200:
+          description: Successful division
+          body:
+            application/json:
+              type: Result
